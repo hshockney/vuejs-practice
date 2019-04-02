@@ -8,17 +8,27 @@
   <title>Vuejs Beginners</title>
 </head>
 <body>
-  <footer id="footer">
-     <p>copyright {{ date.getFullYear() }}</p> 
-  </footer>
+    <div id="app">
+        <h1>{{ count }}</h1>
+        <button @click="reduceCounter">-</button>
+        <button @click="addCounter">+</button>
+    </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-      new Vue({
-          el: '#footer',
-          data: {
-              date: new Date()
-          }
-      })
+        new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+                methods: {
+                reduceCounter: function () {
+                    this.count --
+                },
+                    addCounter: function () {
+                        this.count ++
+                    }
+                }
+        })
     </script>
 </body>
 </html>
